@@ -1,0 +1,94 @@
+
+
+#task1
+# dec_cheack = {}
+
+# fruits = input("Enter the names of fruits separated by space: ")
+# fruit_list = fruits.split()
+
+# for fruit in fruit_list:
+#     if fruit[0] in dec_cheack:
+#         dec_cheack[fruit[0]].append(fruit)
+#     else:
+#         dec_cheack[fruit[0]] = [fruit]
+
+# print(dec_cheack)
+
+#task2
+
+dec_system={}
+recorde=int(input("Enter the Num recorde??"))
+for i in range(recorde):
+    emil=input("Enter the Your Emile??")
+
+    if emil in dec_system:
+        index=list(dec_system).index(emil)
+        print(f"It is Here. in index {index}")
+        
+    else:
+        firstName=input("Enter the Your Name??")
+        lastName=input("Enter the Your Last Name??")
+        password=input("Enter the Your password??")
+        pehone=input("Enter the Your pehone??")
+        dec_system[emil]=[firstName,lastName,password,pehone]
+        
+print(dec_system.keys())
+
+#task1
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def insert(self, value):
+        self.items.append(value)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop(0)
+        else:
+            print("Warning: Trying to pop from an empty queue.")
+            return None
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+
+class OutOfRangeException(Exception):
+    pass
+
+#task2
+class NamedQueue(Queue):
+    all_queues = {}  
+
+    def __init__(self, name, size):
+        super().__init__()
+        self.name = name
+        self.size = size
+        NamedQueue.all_queues[name] = self  
+
+    def insert(self, value):
+        if len(self.items) < self.size:
+            super().insert(value)
+        else:
+            raise OutOfRangeException(f"Queue {self.name} is full, cannot insert more values.")
+
+    def show_all_queues(self):
+        print("All queues:")
+        for queue_name, queue_instance in NamedQueue.all_queues.items():
+            print(f"Queue Name: {queue_name}, Size: {queue_instance.size}, Items: {queue_instance.items}")
+
+queue1 = NamedQueue(name="Queue1", size=3)
+queue2 = NamedQueue(name="Queue2", size=2)
+
+queue1.insert(1)
+queue1.insert(2)
+queue1.insert(3)
+
+
+
+queue2.insert('A')
+queue2.insert('B')
+
+
+queue1.show_all_queues()
+queue2.show_all_queues()

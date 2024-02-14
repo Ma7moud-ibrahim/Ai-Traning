@@ -1,0 +1,67 @@
+"""
+#task1
+k = ["Ten","Twenty","Thirty"]
+v = [10,20,30]
+dic_item={}
+for i in range(len(k)):
+    dic_item[k[i]]=v[i]
+    
+print (dic_item)
+
+#task2
+if "ten" in dic_item:
+    print("found")
+else :
+    print("not found")
+#task3
+d1 = {"a": 10, "b": 20, "c": 30}
+d2 = {"d": 40, "f": 50}
+
+for value in range(len(d2)):
+    d1[list(d2.keys())[value]] = list(d2.values())[value]
+
+print(d1)
+
+#task4
+dec_input = {}
+#size = int(input("Enter the size: "))
+sum_value=0
+
+for i in range(size):
+    key = input(f"Enter key {i + 1}: ")
+    value = input(f"Enter value for {key}: ")
+    dec_input[key] = [value]
+    sum_value += int(value)
+
+print ("Dictionary is ", dec_input)
+print ("Sum of values are ", sum_value)"""
+
+#task5
+dec_Square={}
+n = int(input("Enter the Size"))
+for i in range(n):
+    num = float(input(f"Enter number {i+1}"))
+    dec_Square[num]=[num**2]
+print(dec_Square)
+#task6
+str1="Ahmed"
+str2="Mahmoud"
+
+for i in str1:
+    if i not in str2:
+        print(i)
+
+#task7
+dec_cheack = {}
+
+fruits = input("Enter the names of fruits separated by space: ")
+fruit_list = fruits.split()
+
+for fruit in fruit_list:
+    if fruit[0] in dec_cheack:
+        dec_cheack[fruit[0]].append(fruit)
+    else:
+        dec_cheack[fruit[0]] = [fruit]
+
+print(dec_cheack)
+
